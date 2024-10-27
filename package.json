@@ -1,0 +1,16 @@
+{
+  "name": "speaker-slider-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass src/styles/main.scss public/assets/styles/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.80.4"
+  }
+}
