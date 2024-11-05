@@ -47,12 +47,27 @@ const speakers = [
     description:
       "A Chief Engagement Officer (CEO) is a senior executive responsible for fostering and maintaining strong relationships with key stakeholders, both internal and external to an organization. This role is crucial in building and strengthening brand reputation, driving customer loyalty, and improving employee morale.",
   },
+  {
+    name: "John Doe",
+    profession: "Cheif Technical Developer",
+    company: "Pantheon",
+    image: "assets/Ellipse 24 (2).svg",
+    description:
+      "A Chief Technical Officer (CTO) is a senior executive responsible for overseeing an organization's technological operations. This role involves leading the technical team, setting the technological vision, and ensuring the smooth functioning of all technical systems.",
+  },
+  {
+    name: "John Doe",
+    profession: "Cheif Markeing Officer",
+    company: "Spacbee",
+    image: "assets/Ellipse 24 (3).svg",
+    description:
+      "A Chief Technology Officer (CTO) is a senior executive responsible for overseeing an organization's technological operations. This role involves leading the technical team, setting the technological vision, and ensuring the smooth functioning of all technical systems..",
+  },
 ];
 
-let totalCards = speakers.length; // Set totalCards based on speakers array length
-let cardsToShow = 4; // Number of cards to display at once
-let currentIndex = 0; // Current index of the first visible card
-
+let totalCards = speakers.length;
+let cardsToShow = 4;
+let currentIndex = 0;
 function generateCards() {
   const cardsContainer = document.getElementById("cards-container");
   speakers.forEach((item, index) => {
