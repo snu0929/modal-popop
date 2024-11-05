@@ -4,7 +4,7 @@ This project is a frontend assignment that displays a list of speakers for a con
 
 ## Live Demo
 
-View the live demo of the project [here]([https://modal-popup-mrje6l6w1-snu0929s-projects.vercel.app/](https://modal-popup-nine.vercel.app/)).
+View the live demo of the project [here]((https://modal-popup-nine.vercel.app/)).
 
 ## Features
 
