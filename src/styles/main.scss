@@ -4,15 +4,14 @@ body{
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
-#main-div{
-    max-width: 85%;
- margin: 0 auto;
-}
+
 
 .header{
+  margin-bottom: 45px;
     text-align: center;
     &__title{
         font-size: 36px;
+        margin-bottom: -15px;
     }
     &__description{
         font-size: 18px;
@@ -23,43 +22,116 @@ body{
     }
 }
 
+#main-div{
+  max-width: 85%;
+  margin: 0 auto;
 
-
+}
+// slider container
   .slider{
+
     width: 100%;
+    position: relative;
+    overflow: hidden;
+   
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 10; // Ensure buttons are on top
+     border: 1px solid gray;
+      padding: 3px 8px;
+      border-radius: 50%;
+    text-align: center;
+    align-items: center;
+
+
+    &:hover {
+      opacity: 1 !important; 
+    }
+    &:disabled {
+      opacity: 0.5 !important; 
+      cursor: not-allowed;
+     
+    }
+  
+      &.left {
+          left: 3px; 
+         margin-right: 50px;
+      }
+
+      &.right {
+          right: 3px;
+          
+      }
+  }
+
 
    .cards-container{
+
     justify-content: center;
     display: flex;
-   
     gap: 20px;
     text-align: center;
     align-items: center; 
-   
+    transition: transform 0.5s ease; 
+    
+//    padding-top: 3px;
+//  padding-bottom: 3px;
+padding: 3px;
 
+  width: calc(25%*4) ;
     .speaker-card{
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        padding: 20px;
-        width: 23%;
+
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 30px 20px;
+    
         border-radius: 10px;
-        .speaker-card__company{
-            color: grey;
+        transition: transform 0.3s ease;
+        flex: 1 0 21%; 
+      
+        &__image{
+          margin-bottom: -5px;
         }
+        &__name{
+          font-size: 1.5rem;
+          margin-bottom: -5px;
+        }
+        &__profession{
+         
+          margin-bottom: -16px;
+          font-weight: bolder;
+ 
+        }
+        &__company{
+            color: grey;
+            font-size: 18px;
+           
+        }
+  
     }  
-    @media (max-width: 900px){
-      display: flex;
-      flex-wrap: wrap;
+    @media (max-width: 1024px) {
+      .speaker-card {
+        flex: 1 0 30%; 
+      }
     }
+  
+    @media (max-width: 768px) {
+      .speaker-card {
+        flex: 1 0 45%; 
 
+      }
+    }
+  
 
+  
   }
-
 }
 
 // popup container styles
 
 .speaker-details__content {
-    margin-top: 45px;
     position: relative;
     display: flex;
      padding: 20px;
@@ -79,32 +151,33 @@ body{
 
   .speaker-details__info-container {
     align-items: center;
-    line-height: normal;
+    // line-height: normal;
   }
   
   .speaker-details__name {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
-    margin-bottom: 8px;
+    margin-top: -8px;
   }
   
   .speaker-details__profession{
     font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: -8px;
   }
   .speaker-details__company {
     font-size: 18px;
     color: grey;
-  
+    margin-top: -20px;
   }
   
 
   .speaker-details__social-icons{
- 
-    gap:25px
+    margin-top: -10px;
+    gap:50px
   }
   .speaker-details__social-icons img {
-
     cursor: pointer;
   }
   
@@ -118,7 +191,7 @@ body{
   
   .speaker-details__description-container {
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   
 
@@ -139,9 +212,12 @@ body{
 }
 
 
+// footer styled
+
 
   // button styles
-
+  .footer{
+   margin-bottom: 20px;
   .program-details__wraper {
     width: 100%;
     margin-top: 35px;
@@ -168,17 +244,45 @@ body{
         font-size: 18px;
          // Slightly smaller font
       }
-      @media (max-width: 576px) {
+      @media (max-width: 500px) {
         padding: 12px 30px;
         font-size: 15px; 
-        width: 100%;  
+        // width: 100%;  
       }
     }
-  
-  
-  
   }
-  
+
+.program-info{
+display: flex;
+justify-content: center;
+margin-left: -500px;
+
+   .program-info__text{
+    font-size: 18px;
+    margin-top: -40px; 
+
+   }
+   .arrow-icon{
+    margin-top: 20px;
+
+   }
+   @media (max-width: 900px) {
+   
+    margin-left: -250px;
+    .program-info__text {
+      font-size: 16px;
+      margin-top: -20px; 
+    }
+
+    .arrow-icon {
+      margin-top: 10px;
+      width: 20%;
+    }
+  }
+}
+
+
+}
   
 
 
@@ -222,7 +326,7 @@ body{
     
     
     
-      @media (max-width: 500px) {
+     @media (max-width: 500px) {
     .speaker-details__left{
         display: flex;
         flex-direction: column;
@@ -233,7 +337,6 @@ body{
         &__title{
             font-size: 25px;
         }
-    
     }   
       }
     

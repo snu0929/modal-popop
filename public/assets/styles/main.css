@@ -4,16 +4,13 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#main-div {
-  max-width: 85%;
-  margin: 0 auto;
-}
-
 .header {
+  margin-bottom: 45px;
   text-align: center;
 }
 .header__title {
   font-size: 36px;
+  margin-bottom: -15px;
 }
 .header__description {
   font-size: 18px;
@@ -22,8 +19,41 @@ body {
   color: #003FB4;
 }
 
+#main-div {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
 .slider {
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.slider .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  border: 1px solid gray;
+  padding: 3px 8px;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+}
+.slider .carousel-button:hover {
+  opacity: 1 !important;
+}
+.slider .carousel-button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed;
+}
+.slider .carousel-button.left {
+  left: 3px;
+  margin-right: 50px;
+}
+.slider .carousel-button.right {
+  right: 3px;
 }
 .slider .cards-container {
   justify-content: center;
@@ -31,25 +61,44 @@ body {
   gap: 20px;
   text-align: center;
   align-items: center;
+  transition: transform 0.5s ease;
+  padding: 3px;
+  width: 100%;
 }
 .slider .cards-container .speaker-card {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  padding: 20px;
-  width: 23%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px 20px;
   border-radius: 10px;
+  transition: transform 0.3s ease;
+  flex: 1 0 21%;
 }
-.slider .cards-container .speaker-card .speaker-card__company {
+.slider .cards-container .speaker-card__image {
+  margin-bottom: -5px;
+}
+.slider .cards-container .speaker-card__name {
+  font-size: 1.5rem;
+  margin-bottom: -5px;
+}
+.slider .cards-container .speaker-card__profession {
+  margin-bottom: -16px;
+  font-weight: bolder;
+}
+.slider .cards-container .speaker-card__company {
   color: grey;
+  font-size: 18px;
 }
-@media (max-width: 900px) {
-  .slider .cards-container {
-    display: flex;
-    flex-wrap: wrap;
+@media (max-width: 1024px) {
+  .slider .cards-container .speaker-card {
+    flex: 1 0 30%;
+  }
+}
+@media (max-width: 768px) {
+  .slider .cards-container .speaker-card {
+    flex: 1 0 45%;
   }
 }
 
 .speaker-details__content {
-  margin-top: 45px;
   position: relative;
   display: flex;
   padding: 20px;
@@ -67,27 +116,30 @@ body {
 
 .speaker-details__info-container {
   align-items: center;
-  line-height: normal;
 }
 
 .speaker-details__name {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 8px;
+  margin-top: -8px;
 }
 
 .speaker-details__profession {
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: -8px;
 }
 
 .speaker-details__company {
   font-size: 18px;
   color: grey;
+  margin-top: -20px;
 }
 
 .speaker-details__social-icons {
-  gap: 25px;
+  margin-top: -10px;
+  gap: 50px;
 }
 
 .speaker-details__social-icons img {
@@ -103,7 +155,7 @@ body {
 
 .speaker-details__description-container {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .hidden {
@@ -120,14 +172,17 @@ body {
   outline: none;
 }
 
-.program-details__wraper {
+.footer {
+  margin-bottom: 20px;
+}
+.footer .program-details__wraper {
   width: 100%;
   margin-top: 35px;
   display: flex;
   justify-content: center;
   padding: 20px 0;
 }
-.program-details__wraper .program-details__button {
+.footer .program-details__wraper .program-details__button {
   background: #003FB4;
   color: white;
   padding: 18px 120px;
@@ -137,20 +192,44 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.program-details__wraper .program-details__button:hover {
+.footer .program-details__wraper .program-details__button:hover {
   background-color: #002f8a;
 }
 @media (max-width: 900px) {
-  .program-details__wraper .program-details__button {
+  .footer .program-details__wraper .program-details__button {
     padding: 10px 50px;
     font-size: 18px;
   }
 }
-@media (max-width: 576px) {
-  .program-details__wraper .program-details__button {
+@media (max-width: 500px) {
+  .footer .program-details__wraper .program-details__button {
     padding: 12px 30px;
     font-size: 15px;
-    width: 100%;
+  }
+}
+.footer .program-info {
+  display: flex;
+  justify-content: center;
+  margin-left: -500px;
+}
+.footer .program-info .program-info__text {
+  font-size: 18px;
+  margin-top: -40px;
+}
+.footer .program-info .arrow-icon {
+  margin-top: 20px;
+}
+@media (max-width: 900px) {
+  .footer .program-info {
+    margin-left: -250px;
+  }
+  .footer .program-info .program-info__text {
+    font-size: 16px;
+    margin-top: -20px;
+  }
+  .footer .program-info .arrow-icon {
+    margin-top: 10px;
+    width: 20%;
   }
 }
 
